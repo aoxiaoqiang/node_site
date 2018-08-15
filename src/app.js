@@ -55,9 +55,7 @@ app.use( (req, res, next) => {
 
 // 首页
 app.get('/', (req, res) => {
-  res.redirect({
-    url: '/image/web-design.png'
-  })
+  res.redirect('/image/web-design.png');
   // const loginUser = req.session.loginUser;
   // const isLogined = !!loginUser;
 
