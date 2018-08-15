@@ -147,6 +147,7 @@ app.post('/reg', (req, res) => {
   }
 })
 
-app.listen(3000, () => {
-  console.log(`The server is running at http://127.0.0.1:3000`)
+const port = process.env.NODE_ENV === 'development' ? 3000 : 80;
+app.listen(port, () => {
+  console.log(`The server is running at http://127.0.0.1:${port}`)
 })
