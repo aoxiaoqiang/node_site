@@ -12,9 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.18.3",
-    "ejs": "2.6.1",
     "express": "4.16.3",
     "express-session": "1.15.6",
+    "pug": "2.0.3",
     "session-file-store": "1.2.0"
   }
 }

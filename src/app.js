@@ -34,7 +34,7 @@ const findUser = (type = 'find', name, password) => {
 };
 
 //设置模板引擎为ejs, 模板路径
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -57,10 +57,10 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   // res.redirect('/image/web-design.png');
   const loginUser = req.session.loginUser;
-  const isLogined = !!loginUser;
 
   res.render('index', {
-    isLogined: isLogined,
+    title: '首页',
+    isLogined: !!loginUser,
     name: loginUser || ''
   });
 });
