@@ -45,7 +45,7 @@ app.use(bodyParser.json()); // parse application/json
 
 
 //登录拦截器，必须放在静态资源声明之后、路由导航之前
-app.use( (req, res, next) => {
+app.use((req, res, next) => {
   var url = req.originalUrl;
   if (url === '/userInfo' && !req.session.loginUser) {
     return res.redirect('/login.html');
@@ -55,14 +55,14 @@ app.use( (req, res, next) => {
 
 // 首页
 app.get('/', (req, res) => {
-  res.redirect('/image/web-design.png');
-  // const loginUser = req.session.loginUser;
-  // const isLogined = !!loginUser;
+  // res.redirect('/image/web-design.png');
+  const loginUser = req.session.loginUser;
+  const isLogined = !!loginUser;
 
-  // res.render('index', {
-  //   isLogined: isLogined,
-  //   name: loginUser || ''
-  // });
+  res.render('index', {
+    isLogined: isLogined,
+    name: loginUser || ''
+  });
 });
 
 // 登录
